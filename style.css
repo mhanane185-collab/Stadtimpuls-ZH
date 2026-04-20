@@ -1,7 +1,10 @@
-/* Design für das Bauprojekt Binzallee */
+/* DESIGN FÜR BAUPROJEKT BINZALLEE */
+/* Projektleitung: Simon Trunigger & Daniel Hudenschild */
+
 :root {
-    --purple: #6a3093;
-    --lime: #b4d433;
+    --purple: #6a3093;  /* Das Violett aus deinen Bildern */
+    --padding-section: 80px 10%;
+    --lime: #b4d433;    /* Das Limettengrün aus deinen Bildern */
     --dark: #2d3436;
     --light: #f9f9f9;
     --white: #ffffff;
@@ -13,71 +16,77 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth; /* Sorgt für sanftes Gleiten beim Klicken im Menü */
+}
+
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: var(--dark);
-    scroll-behavior: smooth;
+    background-color: var(--white);
 }
 
-.container {
-    padding: 100px 10%;
-}
-
-.bg-light { background-color: var(--light); }
-
-/* Navigation */
+/* NAVIGATION & MENÜ */
 header {
-    background: var(--white);
-    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 10%;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--purple);
+    line-height: 1.2;
 }
 
 .logo span {
-    font-weight: 300;
-    font-size: 0.9rem;
-    display: block;
+    font-size: 0.8rem;
     color: var(--dark);
-    margin-top: -5px;
+    display: block;
+    font-weight: 300;
 }
 
-nav ul {
+.nav-links {
     display: flex;
     list-style: none;
 }
 
-nav ul li { margin-left: 30px; }
+.nav-links li {
+    margin-left: 30px;
+}
 
-nav ul li a {
+.nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
-nav ul li a:hover { color: var(--purple); }
+.nav-links a:hover {
+    color: var(--purple);
+}
 
-/* Hero Bereich */
+/* HERO BEREICH */
 .hero {
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(106, 48, 147, 0.8), rgba(180, 212, 51, 0.6)), 
-                url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+    height: 80vh;
+    min-height: 500px;
+    background: linear-gradient(135deg, rgba(106, 48, 147, 0.7), rgba(180, 212, 51, 0.5)), 
+                url('https://images.unsplash.com/photo-1517733931452-482206725394?q=80&w=2070') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,78 +96,81 @@ nav ul li a:hover { color: var(--purple); }
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
+    font-weight: 300;
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 15px 35px;
     background: var(--lime);
     color: var(--dark);
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: transform 0.3s, background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
     background: var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Sektionen */
+/* ALLGEMEINE SEKTIONEN */
+.container {
+    padding: var(--padding-section);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light { background-color: var(--light); }
+
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--purple);
 }
 
 .underline {
-    width: 80px;
-    height: 5px;
+    width: 60px;
+    height: 4px;
     background: var(--lime);
     margin: 10px auto;
 }
 
+/* PROJEKT GRID */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
 }
 
-.features {
-    list-style: none;
-    margin-top: 20px;
+.text-box p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
 
-.features li {
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
+.image-box .placeholder-img {
+    width: 100%;
+    background: var(--purple);
+    border-bottom: 15px solid var(--lime);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--lime);
-    font-weight: bold;
-}
-
-/* Team Karten */
+/* TEAM BEREICH */
 .team-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -168,45 +180,62 @@ nav ul li a:hover { color: var(--purple); }
 .team-card {
     background: var(--white);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--purple);
 }
 
 .avatar {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(var(--purple), var(--lime));
+    width: 80px;
+    height: 80px;
+    background: var(--lime);
+    color: var(--purple);
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 2rem;
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
-/* Footer */
+/* FOOTER / KONTAKT */
 footer {
-    background: var(--purple);
+    background: var(--dark);
     color: var(--white);
-    padding: 60px 10%;
+    padding: 60px 10% 20px;
     text-align: center;
 }
 
-.footer-content h3 { margin-bottom: 20px; }
+footer h3 {
+    color: var(--lime);
+    margin-bottom: 20px;
+}
 
 .copyright {
     margin-top: 40px;
     font-size: 0.8rem;
-    opacity: 0.7;
+    opacity: 0.5;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
 }
 
-/* Mobile Anpassung */
+/* HANDY ANPASSUNG (RESPONSIVE) */
 @media (max-width: 768px) {
-    .grid, .team-grid { grid-template-columns: 1fr; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .container { padding: 60px 5%; }
-    nav ul { display: none; }
+    .grid, .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none; /* Versteckt das Menü auf kleinen Handys für die Einfachheit */
+    }
+    
+    .container {
+        padding: 50px 5%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
 }
