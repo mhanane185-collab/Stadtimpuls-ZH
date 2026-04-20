@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bauprojekt Binzallee | Trunigger & Hudenschild</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav>
+        <nav class="container-nav">
             <div class="logo">Binzallee <span>Stadt Zürich</span></div>
             <ul class="nav-links">
-                <li><a href="#projekt">Projekt</a></li>
-                <li><a href="#team">Team</a></li>
+                <li><a href="#projekte">Unsere Projekte</a></li>
+                <li><a href="#team">Unser Team</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
@@ -21,52 +22,55 @@
 
     <section class="hero">
         <div class="hero-content">
+            <span class="badge">Neuprojekt</span>
             <h1>Urbanes Leben & Spiel</h1>
-            <p>Projektleitung: Simon Trunigger & Daniel Hudenschild</p>
-            <a href="#projekt" class="btn">Details ansehen</a>
+            <p>Simon Trunigger & Daniel Hudenschild führen die Neugestaltung des Aussenraums Binzallee an.</p>
+            <a href="#projekte" class="btn">Details ansehen</a>
         </div>
     </section>
 
-    <section id="projekt" class="container">
+    <section id="projekte" class="container">
         <div class="section-header">
-            <h2>Über das Projekt</h2>
-            <div class="underline"></div>
+            <h2>Unsere Projekte</h2>
+            <p>Nachhaltige Konzepte für den urbanen Raum.</p>
         </div>
-        <div class="grid">
-            <div class="text-box">
-                <p>Neugestaltung des Aussenraums an der Binzallee. Wir verwandeln graue Flächen in lebendige Begegnungszonen.</p>
+        <div class="project-card">
+            <div class="project-info">
+                <h3>Aussenraum Binzallee</h3>
+                <p>Verwandlung von Asphalt in eine grüne, violette und limettengrüne Erlebniswelt mit Sport- und Begegnungszonen.</p>
             </div>
-            <div class="image-box">
-                <div class="placeholder-img" style="background: #b4d433; border-radius: 20px; min-height: 200px;"></div>
+            <div class="project-visual">
+                <div class="color-shape"></div>
             </div>
         </div>
     </section>
 
     <section id="team" class="container bg-light">
         <div class="section-header">
-            <h2>Das Projektteam</h2>
-            <div class="underline"></div>
+            <h2>Unser Team</h2>
         </div>
         <div class="team-grid">
-            <div class="team-card">
-                <div class="avatar">ST</div>
+            <div class="team-member">
+                <div class="avatar-circle">ST</div>
                 <h3>Simon Trunigger</h3>
-                <p>Projektleitung</p>
+                <span>Projektleitung</span>
             </div>
-            <div class="team-card">
-                <div class="avatar">DH</div>
+            <div class="team-member">
+                <div class="avatar-circle">DH</div>
                 <h3>Daniel Hudenschild</h3>
-                <p>Projektleitung</p>
+                <span>Projektleitung</span>
             </div>
         </div>
     </section>
 
     <footer id="kontakt">
-        <div class="footer-content">
-            <h3>Kontakt</h3>
-            <p>Simon Trunigger & Daniel Hudenschild</p>
-            <p>Stadt Zürich</p>
-            <p class="copyright">&copy; 2024</p>
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Trunigger & Hudenschild | Stadt Zürich</p>
+            <p>E-Mail: kontakt@deine-domain.ch</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Binzallee Projekt</p>
+            </div>
         </div>
     </footer>
 
