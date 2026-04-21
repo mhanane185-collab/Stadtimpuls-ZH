@@ -1,52 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekte | Trunninger & Haudenschild</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+<main>
+    <section class="subpage-hero">
+        <h1 style="font-size: 8vw; line-height: 0.8;">STADT<br><span class="highlight">IMPULS</span></h1>
+    </section>
 
-    <header>
-        <nav class="nav-container">
-            <div class="logo">T&H <span>Stadt Zürich</span></div>
-            <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projekte.html" style="color: var(--purple);">Unsere Projekte</a></li>
-                <li><a href="mission.html">Unsere Mission</a></li>
-                <li><a href="ueber-uns.html">Über uns</a></li>
-                <li><a href="kontakt.html" class="nav-btn">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="subpage-hero">
-            <h1>Unsere <span class="highlight">Projekte</span>.</h1>
-            <p>Farbe, Natur und Leben für die Stadt Zürich.</p>
-        </section>
-
-        <section class="projects-container">
-            <div class="project-item">
-                <div class="project-image" style="background: url('platzhalter.jpg') center/cover; background-color: var(--purple);">
-                    </div>
-                <div class="project-text">
-                    <h2>Aussenraum Binzallee</h2>
-                    <p>Die Transformation grauer Asphaltflächen in eine lebendige Erlebniswelt. Mit markanten Akzenten in Violett und Limettengrün schaffen wir Räume, die zur Bewegung und Begegnung einladen.</p>
-                </div>
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="image.png" alt="Binzallee"> 
+            <div class="project-overlay">
+                <span>01 / ZÜRICH</span>
+                <h3>Binzallee</h3>
+                <p>Spielraum trifft auf urbane Ästhetik.</p>
             </div>
-            
-            </section>
-    </main>
+        </div>
 
-    <script>
-        document.querySelector('#mobile-menu').addEventListener('click', function() {
-            this.classList.toggle('is-active');
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+        <div class="project-card">
+            <div style="background: var(--purple); height: 100%; width: 100%;"></div>
+            <div class="project-overlay">
+                <span>02 / KONZEPT</span>
+                <h3>Farbraum</h3>
+                <p>Innovative Bodengestaltung.</p>
+            </div>
+        </div>
+    </div>
+</main>
