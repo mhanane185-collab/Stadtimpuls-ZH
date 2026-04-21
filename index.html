@@ -3,76 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bauprojekt Binzallee | Trunigger & Hudenschild</title>
+    <title>Trunninger & Haudenschild | Bauprojekt Binzallee</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav class="container-nav">
-            <div class="logo">Binzallee <span>Stadt Zürich</span></div>
+        <nav class="nav-container">
+            <div class="logo">T&H <span>Stadt Zürich</span></div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
             <ul class="nav-links">
-                <li><a href="#projekte">Unsere Projekte</a></li>
-                <li><a href="#team">Unser Team</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projekte.html">Unsere Projekte</a></li>
+                <li><a href="mission.html">Unsere Mission</a></li>
+                <li><a href="ueber-uns.html">Über uns</a></li>
+                <li><a href="kontakt.html" class="nav-btn">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Neuprojekt</span>
-            <h1>Urbanes Leben & Spiel</h1>
-            <p>Simon Trunigger & Daniel Hudenschild führen die Neugestaltung des Aussenraums Binzallee an.</p>
-            <a href="#projekte" class="btn">Details ansehen</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1 class="reveal">Urbaner <br><span class="highlight">Freiraum.</span></h1>
+                <p>Simon Trunninger & Daniel Haudenschild gestalten die Zukunft der Binzallee.</p>
+                <div class="hero-btns">
+                    <a href="projekte.html" class="btn-primary">Projekt entdecken</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="blob-purple"></div>
+                <div class="blob-lime"></div>
+            </div>
+        </section>
+    </main>
 
-    <section id="projekte" class="container">
-        <div class="section-header">
-            <h2>Unsere Projekte</h2>
-            <p>Nachhaltige Konzepte für den urbanen Raum.</p>
-        </div>
-        <div class="project-card">
-            <div class="project-info">
-                <h3>Aussenraum Binzallee</h3>
-                <p>Verwandlung von Asphalt in eine grüne, violette und limettengrüne Erlebniswelt mit Sport- und Begegnungszonen.</p>
-            </div>
-            <div class="project-visual">
-                <div class="color-shape"></div>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Script für das Handy-Menü
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('.nav-links');
 
-    <section id="team" class="container bg-light">
-        <div class="section-header">
-            <h2>Unser Team</h2>
-        </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="avatar-circle">ST</div>
-                <h3>Simon Trunigger</h3>
-                <span>Projektleitung</span>
-            </div>
-            <div class="team-member">
-                <div class="avatar-circle">DH</div>
-                <h3>Daniel Hudenschild</h3>
-                <span>Projektleitung</span>
-            </div>
-        </div>
-    </section>
-
-    <footer id="kontakt">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <p>Trunigger & Hudenschild | Stadt Zürich</p>
-            <p>E-Mail: kontakt@deine-domain.ch</p>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Binzallee Projekt</p>
-            </div>
-        </div>
-    </footer>
-
+        menu.addEventListener('click', function() {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
