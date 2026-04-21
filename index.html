@@ -3,57 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trunninger & Haudenschild | Bauprojekt Binzallee</title>
+    <title>Stadtimpuls ZH | Binzallee</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav class="nav-container">
-            <div class="logo">T&H <span>Stadt Zürich</span></div>
-            
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
+        <nav>
+            <div class="logo">STADTIMPULS<span>.ZH</span></div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projekte.html">Unsere Projekte</a></li>
-                <li><a href="mission.html">Unsere Mission</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="mission.html">Mission</a></li>
                 <li><a href="ueber-uns.html">Über uns</a></li>
-                <li><a href="kontakt.html" class="nav-btn">Kontakt</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-text">
-                <h1 class="reveal">Urbaner <br><span class="highlight">Freiraum.</span></h1>
-                <p>Simon Trunninger & Daniel Haudenschild gestalten die Zukunft der Binzallee.</p>
-                <div class="hero-btns">
-                    <a href="projekte.html" class="btn-primary">Projekt entdecken</a>
+            <h1>STADT<br>IMPULS</h1>
+            <p>Simon Trunninger & Daniel Haudenschild verwandeln die Binzallee in eine interaktive Erlebniswelt.</p>
+            <a href="projekte.html" class="cta">PROJEKTE ANSEHEN</a>
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <img src="deinbild.jpg" alt="Binzallee">
+                <div class="card-content">
+                    <h3>Binzallee</h3>
+                    <p>Außenraumgestaltung</p>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="blob-purple"></div>
-                <div class="blob-lime"></div>
+            <div class="card" style="display: flex; align-items: center; justify-content: center; background: var(--purple);">
+                <h2 style="font-size: 5rem; opacity: 0.1;">CREATIVE</h2>
             </div>
         </section>
     </main>
 
-    <script>
-        // Script für das Handy-Menü
-        const menu = document.querySelector('#mobile-menu');
-        const menuLinks = document.querySelector('.nav-links');
-
-        menu.addEventListener('click', function() {
-            menu.classList.toggle('is-active');
-            menuLinks.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
