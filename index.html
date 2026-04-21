@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground Binzallee | Stadtimpuls ZH</title>
+    <title>Playground Binzallee | Netto-Null Pilotquartier</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -38,14 +38,23 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--purple); text-decoration: none; }
-        .logo span { color: var(--lime); }
+        /* Neues Branding im Header */
+        .logo { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: var(--text); 
+            text-decoration: none; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--purple); font-size: 0.85rem; font-weight: 500; }
 
-        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
         nav a { 
             text-decoration: none; 
             color: var(--text); 
-            font-size: 0.85rem; 
+            font-size: 0.8rem; 
             font-weight: 700; 
             text-transform: uppercase; 
             letter-spacing: 1px;
@@ -71,17 +80,17 @@
 
         h1 { 
             font-family: 'Space Grotesk', sans-serif; 
-            font-size: clamp(2.5rem, 8vw, 5.5rem); 
+            font-size: clamp(2.2rem, 7vw, 5rem); 
             line-height: 1; 
             margin-bottom: 40px; 
             text-transform: uppercase;
         }
 
         .project-description {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            line-height: 1.4;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.5;
             color: #444;
-            max-width: 900px;
+            max-width: 950px;
             margin-bottom: 60px;
             font-weight: 300;
         }
@@ -91,7 +100,7 @@
             color: var(--purple);
         }
 
-        /* --- MODERNER SLIDER --- */
+        /* --- SLIDER --- */
         .comparison-wrapper {
             width: 100%;
             max-width: 1200px;
@@ -123,7 +132,6 @@
             opacity: 0; z-index: 4; cursor: ew-resize;
         }
 
-        /* Das Icon im Schieber */
         .handle-circle {
             position: absolute;
             top: 50%; left: 50%;
@@ -137,18 +145,14 @@
             pointer-events: none;
         }
         
-        .handle-circle svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--purple);
-        }
+        .handle-circle svg { width: 24px; height: 24px; fill: var(--purple); }
 
         /* --- INFO & VOTE --- */
         .section-light { padding: 100px 10%; background: var(--light-gray); border-radius: 60px; margin: 20px; }
         
         .vote-btn {
             display: inline-block;
-            padding: 22px 50px;
+            padding: 22px 55px;
             background: var(--lime);
             color: var(--text);
             text-decoration: none;
@@ -161,11 +165,16 @@
         .vote-btn:hover { transform: translateY(-5px); background: var(--purple); color: white; }
 
         /* --- FOOTER --- */
-        footer { padding: 60px; text-align: center; color: #aaa; font-size: 0.8rem; letter-spacing: 2px; }
+        footer { padding: 60px; text-align: center; color: #aaa; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;}
+
+        @media (max-width: 900px) {
+            .logo { font-size: 0.8rem; }
+            nav ul { gap: 15px; }
+        }
 
         @media (max-width: 768px) {
             nav ul { display: none; } 
-            h1 { font-size: 3rem; }
+            h1 { font-size: 2.5rem; }
             .section-light { padding: 60px 5%; }
         }
     </style>
@@ -173,12 +182,12 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">STADT<span>IMPULS</span>.ZH</a>
+        <a href="index.html" class="logo">Playground Binzallee <span>by CoverUP CornerZH</span></a>
         <nav>
             <ul>
                 <li><a href="index.html">Projekt</a></li>
                 <li><a href="ueber-uns.html">Über uns</a></li>
-                <li><a href="#voting">Voting</a></li>
+                <li><a href="#voting">Jetzt voten</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
         </nav>
@@ -189,7 +198,7 @@
             <h1>Playground<br><span style="color: var(--purple);">Binzallee</span></h1>
             
             <p class="project-description">
-                Der <strong>„Playground Binzallee“</strong> verwandelt einen versiegelten Innenhof in einen klimaresilienten, multifunktionalen Stadtraum. Durch Begrünung, Verschattung und vielfältige Nutzungen verbessert sich das Mikroklima und die Aufenthaltsqualität. So entsteht ein <strong>lebendiger Treffpunkt</strong> mit hoher Übertragbarkeit auf andere Orte.
+                Der <strong>„Playground Binzallee“</strong> verwandelt einen versiegelten Innenhof in einen klimaresilienten, multifunktionalen Stadtraum im Rahmen des <strong>Pilotquartiers Netto-Null</strong>. Durch Begrünung, Verschattung und vielfältige Nutzungen verbessert sich das Mikroklima und die Aufenthaltsqualität. So entsteht ein <strong>lebendiger Treffpunkt</strong> mit hoher Übertragbarkeit auf andere Orte.
             </p>
         </section>
 
@@ -215,8 +224,8 @@
         </div>
 
         <section class="section-light" id="voting" style="text-align: center;">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 20px;">Jetzt mitwirken</h2>
-            <p style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Unterstütze dieses Pilotprojekt der Stadt Zürich mit deiner Stimme auf der offiziellen Mitwirken-Plattform.</p>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 20px;">Deine Stimme zählt</h2>
+            <p style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Unterstütze diese Vision für ein grüneres Zürich auf der offiziellen Mitwirken-Plattform.</p>
             <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="vote-btn">Jetzt voten</a>
         </section>
 
@@ -228,7 +237,7 @@
     </main>
 
     <footer>
-        STADTIMPULS ZÜRICH &copy; 2026 | PILOTQUARTIER BINZALLEE
+        CoverUP CornerZH &copy; 2026 | Playground Binzallee | Netto-Null Pilotprojekt
     </footer>
 
     <script>
