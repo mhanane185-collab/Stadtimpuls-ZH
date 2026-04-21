@@ -4,158 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stadtimpuls ZH | Binzallee</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* DAS DESIGN - HIER DIREKT EINGEBAUT */
         :root {
             --purple: #6a3093;
             --lime: #b4d433;
-            --dark: #0a0a0a;
+            --dark: #050505;
             --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--dark);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+        body { 
+            background-color: var(--dark); 
+            color: var(--white); 
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Hintergrund-Effekt */
-        body::before {
-            content: "";
+        /* Hintergrund-Animation */
+        .bg-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(106, 48, 147, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(180, 212, 51, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 80% 20%, rgba(106, 48, 147, 0.2), transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(180, 212, 51, 0.15), transparent 40%);
             z-index: -1;
         }
 
-        header {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
             padding: 30px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; letter-spacing: 2px; }
+        .logo span { color: var(--lime); }
 
-        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; color: var(--lime); letter-spacing: 2px; }
-
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { text-decoration: none; color: #888; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--white); }
-
+        /* Hero Bereich */
         .hero {
-            padding: 100px 5%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 0 10%;
         }
 
         h1 {
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            line-height: 0.9;
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 12vw, 10rem);
+            line-height: 0.8;
             text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-        .highlight {
+        .outline {
             color: transparent;
-            -webkit-text-stroke: 1px var(--purple);
+            -webkit-text-stroke: 1.5px var(--white);
+            opacity: 0.4;
         }
 
-        /* DER VOTE BUTTON */
-        .vote-container {
-            margin: 40px 0;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-        }
-
+        /* Der interaktive Vote-Button */
+        .vote-section { margin-top: 50px; }
         .btn-vote {
+            position: relative;
             display: inline-block;
-            padding: 20px 50px;
+            padding: 25px 60px;
             background: var(--lime);
             color: var(--dark);
             text-decoration: none;
-            font-weight: 900;
+            font-weight: 800;
             font-size: 1.2rem;
             border-radius: 100px;
             text-transform: uppercase;
-            box-shadow: 0 0 30px rgba(180, 212, 51, 0.4);
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(180, 212, 51, 0.4);
         }
-
         .btn-vote:hover {
             transform: scale(1.1) rotate(-2deg);
             background: var(--white);
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
         }
 
-        /* PROJEKT INFO */
-        .project-details {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 50px 0;
+        /* Projekt Story */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 100px 10%;
+            align-items: center;
         }
+        .story-content h2 { font-size: 3rem; margin-bottom: 20px; color: var(--lime); }
+        .story-content p { font-size: 1.3rem; color: #ccc; line-height: 1.6; }
 
-        .project-details h2 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 2rem;
-            color: var(--purple);
-            margin-bottom: 20px;
+        .image-card {
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: skewY(-2deg);
+            transition: 0.5s;
         }
+        .image-card:hover { transform: skewY(0) scale(1.02); }
+        .image-card img { width: 100%; display: block; opacity: 0.8; }
 
-        .project-details p {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        footer {
-            padding: 50px;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 2px;
+        @media (max-width: 768px) {
+            .story-grid { grid-template-columns: 1fr; text-align: center; }
+            h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">T&H<span>.ZH</span></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projekte.html">Projekte</a></li>
-                <li><a href="ueber-uns.html">Über uns</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="bg-glow"></div>
 
-    <main class="hero">
-        <h1>BINZ<br><span class="highlight">ALLEE</span></h1>
-        
-        <div class="vote-container">
-            <p style="margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">Deine Stimme für Zürich</p>
-            <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-vote">Jetzt Voten</a>
-        </div>
+    <nav>
+        <div class="logo">T&H <span>STADT ZÜRICH</span></div>
+    </nav>
 
-        <section class="project-details">
-            <h2>Pilotprojekt Binzallee</h2>
-            <p>Simon Trunninger & Daniel Haudenschild verwandeln graue Asphaltwüsten in lebendige Farbräume. Unsere Vision ist ein Aussenraum, der nicht nur existiert, sondern aktiviert.</p>
-            <p>Mit markanten Akzenten in <strong>Violett</strong> und <strong>Limettengrün</strong> schaffen wir Zonen für Spiel, Sport und Begegnung. Das Projekt nutzt bestehende Strukturen und belebt sie durch kreative Bodenbemalung und innovative Ausstattung neu.</p>
+    <main>
+        <section class="hero">
+            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--purple); font-weight: 700; margin-bottom: 10px;">Transformation</p>
+            <h1>BINZ<br><span class="outline">ALLEE</span></h1>
+            
+            <div class="vote-section">
+                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-vote">🚀 Jetzt Voten</a>
+            </div>
+        </section>
+
+        <section class="story-grid">
+            <div class="story-content">
+                <h2>Farbe statt<br>Asphalt.</h2>
+                <p>
+                    Wir verwandeln graue Flächen in eine lebendige Oase.
+                    Mit markanten Akzenten in <strong>Violett und Limettengrün</strong> schaffen wir Räume, 
+                    die zur Bewegung und Begegnung einladen.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="image.png" alt="Binzallee Projekt">
+            </div>
         </section>
     </main>
 
-    <footer>
-        &copy; 2024 STADTIMPULS ZH | TRUNNINGER & HAUDENSCHILD
+    <footer style="padding: 100px 5%; text-align: center; opacity: 0.3; font-size: 0.8rem; letter-spacing: 2px;">
+        STADTIMPULS ZH &copy; 2026 | SIMON TRUNNINGER & DANIEL HAUDENSCHILD
     </footer>
 
 </body>
