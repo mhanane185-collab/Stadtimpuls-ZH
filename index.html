@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netto-Null Projekte | CoverUP CornerZH</title>
+    <title>CoverUP CornerZH | Netto-Null Projekte</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -25,128 +25,87 @@
             overflow-x: hidden;
         }
 
-        /* --- MODERN NAVIGATION --- */
+        /* --- MODERN NAVIGATION (GLASS) --- */
         header {
             position: fixed;
             top: 20px; left: 50%;
             transform: translateX(-50%);
             width: 90%; max-width: 1200px;
-            padding: 15px 30px;
+            padding: 15px 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 2000;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
-        .logo { 
-            font-family: 'Space Grotesk', sans-serif; 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            color: var(--text); 
-            text-decoration: none; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
         .logo span { color: var(--purple); }
 
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { 
-            text-decoration: none; 
-            color: var(--text); 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            transition: 0.3s;
-            opacity: 0.6;
-        }
+        nav a { text-decoration: none; color: var(--text); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; transition: 0.3s; }
         nav a:hover { opacity: 1; color: var(--purple); }
-        .nav-active { opacity: 1; color: var(--purple); }
 
         /* --- HERO --- */
-        .hero { padding: 200px 10% 100px; text-align: center; }
+        .hero { padding: 220px 10% 100px; text-align: center; }
         h1 { font-family: 'Space Grotesk'; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; text-transform: uppercase; margin-bottom: 30px; }
 
         /* --- PROJECT GRID --- */
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 5%; margin-bottom: 100px; }
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 5%; margin-bottom: 80px; }
         .project-card { 
             background: var(--light-gray); border-radius: 40px; padding: 50px; text-decoration: none; color: inherit;
-            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1); border: 1px solid transparent;
         }
-        .project-card:hover { transform: scale(0.98); background: #eee; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--purple); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .project-card h2 { font-family: 'Space Grotesk'; font-size: 2.2rem; margin: 15px 0; line-height: 1.1; }
 
-        /* --- TAUSCHPUNKT CAROUSEL --- */
-        .carousel-container {
-            width: 100vw;
-            margin-left: calc(-10% - 20px); /* Zentrierung ausgleichen */
-            overflow-x: auto;
-            display: flex;
-            gap: 20px;
-            padding: 20px 10%;
-            scrollbar-width: none; /* Firefox */
+        .btn-inline {
+            display: inline-block; margin-top: 25px; padding: 12px 25px; background: var(--text); color: #fff;
+            border-radius: 50px; text-transform: uppercase; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; transition: 0.3s;
         }
-        .carousel-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .project-card:hover .btn-inline { background: var(--purple); }
 
-        .carousel-item {
-            min-width: 300px;
-            width: 40vw;
-            aspect-ratio: 4/5;
-            border-radius: 30px;
-            overflow: hidden;
-            flex-shrink: 0;
-            background: #eee;
-        }
-        .carousel-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .carousel-item:hover img { transform: scale(1.05); }
+        /* --- DETAIL SECTIONS (Hidden by default) --- */
+        .detail-container { display: none; padding: 100px 10%; border-top: 1px solid #eee; animation: fadeIn 0.8s ease; }
+        .detail-container.active { display: block; }
 
-        /* --- ÜBER UNS (MODERNER LOOK) --- */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- CAROUSEL & SLIDER --- */
+        .carousel-container { width: 100vw; margin-left: calc(-10% - 20px); overflow-x: auto; display: flex; gap: 20px; padding: 40px 10%; scrollbar-width: none; }
+        .carousel-item { min-width: 320px; width: 45vw; aspect-ratio: 16/10; border-radius: 30px; overflow: hidden; background: #eee; flex-shrink: 0; }
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .comparison-container { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 30px; overflow: hidden; margin: 40px 0; }
+        .after-image { position: absolute; inset: 0; width: 50%; overflow: hidden; border-right: 3px solid white; z-index: 2; }
+        .slider-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; z-index: 4; cursor: ew-resize; }
+        .handle-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: white; border-radius: 50%; z-index: 3; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+
+        /* --- ABOUT SECTION --- */
         .about-section { padding: 100px 10%; background: var(--text); color: white; border-radius: 60px; margin: 20px; }
         .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
         .member h3 { font-family: 'Space Grotesk'; font-size: 2.5rem; color: var(--lime); margin-bottom: 10px; }
-        .member p { opacity: 0.7; font-size: 1.1rem; }
 
-        /* --- BUTTONS --- */
-        .vote-btn {
-            display: inline-block; padding: 20px 45px; background: var(--purple); color: white;
-            text-decoration: none; font-weight: 800; border-radius: 100px; text-transform: uppercase;
-            transition: 0.3s; margin-top: 20px;
-        }
-        .vote-btn:hover { background: var(--lime); color: var(--text); transform: translateY(-3px); }
+        /* --- VOTE BUTTON --- */
+        .vote-btn { display: inline-block; padding: 22px 50px; background: var(--lime); color: var(--text); text-decoration: none; font-weight: 800; border-radius: 100px; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 30px rgba(180, 212, 51, 0.2); }
+        .vote-btn:hover { transform: scale(1.05); background: var(--purple); color: white; }
 
-        /* --- SLIDER BINZALLEE --- */
-        .comparison-container {
-            position: relative; width: 100%; aspect-ratio: 16 / 9;
-            border-radius: 30px; overflow: hidden; margin: 40px 0;
-        }
-        .after-image { position: absolute; inset: 0; width: 50%; overflow: hidden; border-right: 3px solid white; z-index: 2; }
-        .slider-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; z-index: 4; cursor: ew-resize; }
-        .handle-circle {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 50px; height: 50px; background: white; border-radius: 50%; z-index: 3;
-            display: flex; align-items: center; justify-content: center; pointer-events: none;
-        }
+        footer { padding: 80px; text-align: center; font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px; }
 
-        @media (max-width: 768px) {
-            .projects-grid, .team-grid { grid-template-columns: 1fr; }
-            header { width: 95%; padding: 10px 20px; }
-            nav ul { gap: 15px; }
-            .carousel-item { width: 80vw; }
-        }
+        @media (max-width: 768px) { .projects-grid, .team-grid { grid-template-columns: 1fr; } .carousel-item { width: 85vw; } }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#home" class="logo">CoverUP<span>ZH</span></a>
+        <a href="#home" class="logo">CoverUP<span>CornerZH</span></a>
         <nav>
             <ul>
-                <li><a href="#home" class="nav-active">Start</a></li>
                 <li><a href="#projekte">Projekte</a></li>
                 <li><a href="#ueber-uns">Über uns</a></li>
             </ul>
@@ -156,72 +115,116 @@
     <main>
         <section class="hero" id="home">
             <span style="text-transform: uppercase; letter-spacing: 3px; font-weight: 800; color: var(--purple);">Pilotquartier Netto-Null</span>
-            <h1>Zukunft<br>Gestalten.</h1>
-            <p style="max-width: 600px; margin: 20px auto; font-size: 1.2rem; opacity: 0.7;">
-                Wir entwickeln kreative Lösungen für ein klimaneutrales Zürich. Entdecke unsere Projekte im Quartier Wiedikon/Binz.
+            <h1>Urban<br>Impact.</h1>
+            <p style="max-width: 650px; margin: 25px auto; font-size: 1.2rem; opacity: 0.6;">
+                Wir transformieren den Stadtraum in Zürich Wiedikon/Binz. Entdecke unsere Initiativen für soziale und klimatische Nachhaltigkeit.
             </p>
         </section>
 
         <section id="projekte" class="projects-grid">
-            <a href="#binzallee" class="project-card">
-                <span style="font-weight: 800; color: var(--purple);">01</span>
-                <h2 style="font-family: 'Space Grotesk'; font-size: 2rem; margin: 10px 0;">Playground Binzallee</h2>
-                <p>Klimaresiliente Entsiegelung & Begegnung.</p>
-            </a>
-            <a href="#tauschpunkt" class="project-card">
-                <span style="font-weight: 800; color: var(--purple);">02</span>
-                <h2 style="font-family: 'Space Grotesk'; font-size: 2rem; margin: 10px 0;">Tauschpunkt</h2>
-                <p>Ressourcen teilen, CO2 sparen.</p>
-            </a>
+            <div class="project-card">
+                <span style="font-weight: 800; color: var(--purple);">PROJECT 01</span>
+                <h2>tauschpunkt.</h2>
+                <p>Teilen statt Besitzen. Ein physischer Hub für die Kreislaufwirtschaft und den sozialen Austausch im Quartier.</p>
+                <div class="btn-inline" onclick="showDetails('details-tauschpunkt')">Details anzeigen</div>
+            </div>
+
+            <div class="project-card">
+                <span style="font-weight: 800; color: var(--purple);">PROJECT 02</span>
+                <h2>Playground<br>Binzallee</h2>
+                <p>Klimaresiliente Umgestaltung eines versiegelten Innenhofs durch Begrünung, Schatten und multifunktionale Nutzung.</p>
+                <div class="btn-inline" onclick="showDetails('details-playground')">Details anzeigen</div>
+            </div>
         </section>
 
-        <section id="tauschpunkt" style="padding: 100px 10%;">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 3.5rem; line-height: 1;">Tauschpunkt.</h2>
-            <p style="max-width: 700px; margin: 30px 0;">
-                Teilen statt kaufen. Der Tauschpunkt ist ein Hub für die Kreislaufwirtschaft. Ein Ort, an dem Gegenstände zirkulieren und die Nachbarschaft zusammenkommt.
-            </p>
-
+        <section id="details-tauschpunkt" class="detail-container">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3.5rem; margin-bottom: 30px;">tauschpunkt. <span style="color:var(--purple); font-size: 1.5rem;">Züri Netto-Null</span></h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 50px;">
+                <div>
+                    <p>Die einfache Benennung weist sofort auf den Zweck hin: Das Tauschen von Gegenständen. Doch der „tauschpunkt.“ ist mehr als ein Regal – er ist ein Ort für nachbarschaftlichen und kulturellen Austausch.</p>
+                    <p style="margin-top:20px;">Mit einer Grösse von ca. 5x3 Metern wird die Station aus Holz und Stegplatten gefertigt. Sie dient als sichtbares Zeichen für die Klimaschutzziele der Stadt Zürich (Netto-Null) und fördert die Sensibilisierung für einen nachhaltigen Lebensstil.</p>
+                </div>
+                <div>
+                    <ul style="list-style: none; border-left: 3px solid var(--lime); padding-left: 20px;">
+                        <li><strong>Grösse:</strong> 5.0 x 3.0 Meter</li>
+                        <li><strong>Material:</strong> Holzstruktur & lichtdurchlässige Stegplatten</li>
+                        <li><strong>Ziel:</strong> Ressourcen-Sharing & Quartierbelebung</li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="carousel-container">
-                <div class="carousel-item"><img src="IMG_2052.jpeg" alt="Tauschpunkt Render 1"></div>
-                <div class="carousel-item"><img src="IMG_2053.jpeg" alt="Tauschpunkt Render 2"></div>
+                <div class="carousel-item"><img src="IMG_2052.jpeg" alt="Tauschpunkt Render"></div>
+                <div class="carousel-item"><img src="IMG_2053.jpeg" alt="Tauschpunkt Detail"></div>
                 <div class="carousel-item"><img src="IMG_2057.jpeg" alt="Tauschpunkt Modell"></div>
                 <div class="carousel-item"><img src="IMG_2054.jpeg" alt="Tauschpunkt Innenansicht"></div>
             </div>
 
-            <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2418" target="_blank" class="vote-btn">Projekt unterstützen & Voten</a>
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2298" target="_blank" class="vote-btn">Jetzt für Tauschpunkt voten</a>
+            </div>
         </section>
 
-        <section id="binzallee" style="padding: 100px 10%; border-top: 1px solid #eee;">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 3.5rem; line-height: 1;">Playground Binzallee.</h2>
+        <section id="details-playground" class="detail-container">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3.5rem; margin-bottom: 30px;">Playground Binzallee.</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 50px;">
+                <div>
+                    <p>Der bestehende Innenhof leidet unter starker sommerlicher Aufheizung. Wir verwandeln diesen versiegelten Raum in einen „klimaaktiven Stadtraum“.</p>
+                    <p style="margin-top:20px;">Durch eine schwebende Begrünungsstruktur (beplanzt auf ca. 6-7m Höhe) entsteht eine horizontale „grüne Decke“. Diese bietet natürliche Verschattung und Verdunstungskühlung, während der Boden durch helle Farben und neue Nutzungen (Basketball, Boccia, Schach) belebt wird.</p>
+                </div>
+                <div>
+                    <ul style="list-style: none; border-left: 3px solid var(--purple); padding-left: 20px;">
+                        <li><strong>Impact:</strong> Reduktion der Hitzeinsel & Kühlung</li>
+                        <li><strong>Nutzung:</strong> Sport, Spiel & Aufenthalt</li>
+                        <li><strong>Biodiversität:</strong> Kletterpflanzen-Systeme</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="comparison-container">
                 <div style="position: absolute; inset: 0;"><img src="IMG_2032.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <div class="after-image" id="after-box"><img src="IMG_2031.png" style="width:90vw; max-width:1200px; height:100%; object-fit:cover;"></div>
                 <div class="handle-circle" id="handle"><svg width="20" viewBox="0 0 24 24" fill="var(--purple)"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></div>
                 <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this.value)">
             </div>
-            <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="vote-btn">Jetzt Voten</a>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="vote-btn">Jetzt für Playground voten</a>
+            </div>
         </section>
 
         <section id="ueber-uns" class="about-section">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem;">Wer wir sind.</h2>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem;">Über uns.</h2>
             <div class="team-grid">
                 <div class="member">
                     <h3>Simon</h3>
-                    <p>Visionär und Experte für urbane Transformation. Simon treibt die Konzepte für klimaresiliente Räume voran.</p>
+                    <p>blablablablabla</p>
                 </div>
                 <div class="member">
-                    <h3>Daniel</h3>
-                    <p>Stratege für nachhaltige Netzwerke. Daniel verbindet Menschen und Ideen für eine echte Kreislaufwirtschaft.</p>
+                    <h3>ColorUP CornerZH</h3>
+                    <p>blablablablabla</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer style="padding: 60px; text-align: center; font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">
-        COVERUP CORNERZH &copy; 2026 | NETTO-NULL PILOTQUARTIER
+    <footer>
+        COVERUP CORNERZH &copy; 2026 | PROJEKTPLATTFORM NETTO-NULL
     </footer>
 
     <script>
+        function showDetails(id) {
+            // Alle Detail-Container verstecken
+            document.querySelectorAll('.detail-container').forEach(div => {
+                div.classList.remove('active');
+            });
+            // Gewünschten Container zeigen
+            const target = document.getElementById(id);
+            target.classList.add('active');
+            // Sanft zum Ziel scrollen
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+
         function moveSlider(val) {
             document.getElementById('after-box').style.width = val + "%";
             document.getElementById('handle').style.left = val + "%";
