@@ -94,21 +94,19 @@
         .slider-handle svg { width: 20px; stroke: var(--purple); }
         .slider-input { position: absolute; inset: 0; opacity: 0; cursor: ew-resize; width: 100%; }
 
-        /* --- MITWIRKEN (LISTE) --- */
+        /* --- MITWIRKEN --- */
         #mitwirken { padding: 100px 5%; background: var(--gray); }
         .mitwirken-container { max-width: 900px; margin: 0 auto; text-align: center; }
         .mitwirken-container h2 { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 30px; }
-        .mitwirken-container p { font-size: 1.2rem; margin-bottom: 30px; }
         
         .modern-list { list-style: none; display: inline-block; text-align: left; margin: 40px 0; }
         .modern-list li { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
         .modern-list li::before { content: ''; width: 25px; height: 2px; background: var(--lime); display: inline-block; }
 
-        .mitwirken-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
         .btn-large { padding: 18px 35px; border-radius: 50px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; }
         .btn-p { background: var(--purple); color: white; }
 
-        /* --- VISION SEKTION (FULL TEXT) --- */
+        /* --- VISION SEKTION --- */
         #vision { padding: 120px 5%; border-top: 1px solid #eee; background: white; }
         .vision-container { max-width: 850px; margin: 0 auto; }
         .vision-container h2 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 30px; color: var(--purple); }
@@ -185,14 +183,23 @@
             <p>So entsteht ein stadtweites Netzwerk, das Ressourcen schont, Abfall reduziert und Menschen verbindet. Aus spontanen Gesten wird eine gelebte Kultur des Teilens, die Nachbarschaften stärkt und neue Begegnungen ermöglicht.</p>
             <p>Die Vision ist ein Zürich, in dem Kreislaufdenken sichtbar und erlebbar wird – praktisch, sozial und nachhaltig.</p>
         </div>
-        
         <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2298" target="_blank" class="btn-large btn-p">Projekt jetzt unterstützen</a>
     </section>
 
     <section id="playground" class="detail-view">
         <span class="back-link" onclick="showOverview()">← Zurück zur Übersicht</span>
         <h2 style="font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px;">Playground Binzallee.</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 40px;">Transformation eines hitzeanfälligen Innenhofs in einen klimaaktiven Stadtraum.</p>
+        
+        <div class="detail-content">
+            <h3>Ausgangslage</h3>
+            <p>Der bestehende Innenhof weist eine hohe Versiegelung, starke sommerliche Aufheizung und geringe Aufenthaltsqualität auf. Gleichzeitig besteht ein grosses Potenzial für eine klimawirksame und sozial aktivierende Veränderung dieser Fläche.</p>
+            
+            <h3>Projektidee</h3>
+            <p>Der Hof wird zu einem klimaaktiven, multifunktionalen Stadtraum entwickelt – durch die Kombination von klimawirksamer Bodenfläche (helle Farben zur Reduktion der Oberflächentemperatur) und einer schwebenden Begrünungsstruktur. Eine bepflanzte Seilstruktur auf ca. 6–7 m Höhe bildet eine horizontale „grüne Decke“ aus Kletterpflanzen, die für Verschattung und Verdunstungskühlung sorgt.</p>
+            
+            <h3>Wirkung & Ziel</h3>
+            <p>Das Projekt reduziert Hitzeinseln und verbessert das Mikroklima nachhaltig. Es transformiert einen reinen Durchgangsraum in einen lebendigen, generationenübergreifenden Treffpunkt und schafft eine neue dreidimensionale Raumqualität im Quartier.</p>
+        </div>
         
         <div class="slider-wrap">
             <img src="IMG_2031.png" class="slider-img">
@@ -205,21 +212,19 @@
             </div>
             <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this.value)">
         </div>
-        <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-large btn-p">Jetzt Voten</a>
+        <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-large btn-p" style="margin-top: 20px; display: inline-block;">Jetzt Voten</a>
     </section>
 
     <section id="mitwirken">
         <div class="mitwirken-container">
             <h2>Mitwirken.</h2>
             <p>Hast Du etwas in Deinem Kreis oder Quartier neu, weiter oder zu Ende gedacht? Mehr Potenzial erkannt? <br>Bringe Deine Idee ein. Züri mitentwickeln und prägen!</p>
-            
             <ul class="modern-list">
                 <li>Teile Deine Vision</li>
                 <li>Erwecke Faszination</li>
                 <li>Finde Mitbestreiter</li>
                 <li>Präge das Stadtleben</li>
             </ul>
-
             <div class="mitwirken-actions">
                 <a href="mailto:stadt@impulzh.com" class="btn-large btn-p">Idee einreichen</a>
             </div>
