@@ -70,7 +70,7 @@
         .preview-card h2 { font-family: 'Space Grotesk'; color: white; font-size: 2.5rem; margin-bottom: 20px; }
         
         .card-btns { display: flex; gap: 10px; }
-        .btn-s { padding: 12px 24px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; text-decoration: none; border: none; cursor: pointer; }
+        .btn-s { padding: 12px 24px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; text-decoration: none; border: none; cursor: pointer; display: inline-block; }
         .btn-white { background: white; color: var(--text); }
         .btn-lime { background: var(--lime); color: var(--text); }
 
@@ -82,12 +82,14 @@
         .project-header h2 { font-family: 'Space Grotesk'; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; margin-bottom: 20px; }
         .project-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: start; }
         .project-main-content h3 { font-family: 'Space Grotesk'; font-size: 1.8rem; margin: 40px 0 20px; color: var(--purple); position: relative; }
-        .project-main-content p { font-size: 1.1rem; margin-bottom: 25px; color: #333; text-align: justify; }
+        
+        /* TEXT-ANPASSUNG: Linksbuendig statt Blocksatz */
+        .project-main-content p { font-size: 1.1rem; margin-bottom: 25px; color: #333; text-align: left; }
         .project-main-content i { display: block; border-left: 3px solid var(--lime); padding-left: 20px; margin: 30px 0; font-style: normal; opacity: 0.7; font-size: 0.95rem; }
         
         .project-sidebar-visuals { position: sticky; top: 120px; }
 
-        /* --- VISUALS (KARUSSELL / SLIDER) --- */
+        /* --- KARUSSELL & SLIDER --- */
         .carousel-container { position: relative; width: 100%; aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .carousel-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s; }
         .carousel-slide.active { opacity: 1; z-index: 1; }
@@ -97,14 +99,27 @@
         .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; }
         .dot.active { background: white; transform: scale(1.2); }
 
+        /* MODERNER SLIDER */
         .slider-wrap { position: relative; width: 100%; aspect-ratio: 1/1; border-radius: 24px; overflow: hidden; }
         .slider-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
         #slider-front { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
-        .slider-bar { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: white; transform: translateX(-50%); pointer-events: none; }
-        .slider-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .slider-input { position: absolute; inset: 0; opacity: 0; cursor: ew-resize; width: 100%; }
+        .slider-bar { position: absolute; top: 0; left: 50%; width: 1px; height: 100%; background: rgba(255,255,255,0.8); transform: translateX(-50%); pointer-events: none; }
+        .slider-handle { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            width: 50px; height: 50px; background: white; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05);
+        }
+        /* Moderne Pfeile (zwei Linien) */
+        .slider-handle::before, .slider-handle::after {
+            content: ''; width: 2px; height: 12px; background: var(--purple); position: absolute; border-radius: 2px;
+        }
+        .slider-handle::before { transform: translateX(-6px); }
+        .slider-handle::after { transform: translateX(6px); }
 
-        /* --- MITWIRKEN (PROZESS) --- */
+        .slider-input { position: absolute; inset: 0; opacity: 0; cursor: ew-resize; width: 100%; z-index: 10; }
+
+        /* --- MITWIRKEN --- */
         #mitwirken { padding: 120px 5%; background: var(--gray); text-align: center; }
         .mitwirken-container { max-width: 1100px; margin: 0 auto; }
         .process-path { display: flex; justify-content: space-between; align-items: flex-start; position: relative; margin: 80px 0; }
@@ -124,7 +139,7 @@
         #vision { padding: 120px 5%; background: white; }
         .vision-container { max-width: 850px; margin: 0 auto; text-align: left; }
         .vision-container h2 { font-family: 'Space Grotesk'; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px; color: var(--purple); }
-        .vision-container p { font-size: 1.15rem; margin-bottom: 25px; line-height: 1.8; color: #333; text-align: justify; }
+        .vision-container p { font-size: 1.15rem; margin-bottom: 25px; line-height: 1.8; color: #333; text-align: left; }
 
         footer { padding: 80px 5%; text-align: center; font-size: 0.75rem; opacity: 0.3; text-transform: uppercase; border-top: 1px solid #f0f0f0; }
     </style>
@@ -183,7 +198,7 @@
                     <div class="process-step"><div class="step-icon">🤝</div><div class="step-label">Finde Mitbestreiter</div></div>
                     <div class="process-step"><div class="step-icon">🏙️</div><div class="step-label">Präge das Stadtleben</div></div>
                 </div>
-                <a href="mailto:stadt@impulzh.com" class="btn-s btn-lime" style="padding: 20px 40px; text-decoration: none; display: inline-block;">Idee einreichen</a>
+                <a href="mailto:stadt@impulzh.com" class="btn-s btn-lime" style="padding: 20px 40px; text-decoration: none;">Idee einreichen</a>
             </div>
         </section>
 
@@ -211,7 +226,7 @@
                 <p>Eine Stadt, in der Teilen selbstverständlich ist: Öffentliche Tausch-Stationen machen es einfach, gebrauchte Dinge weiterzugeben statt wegzuwerfen – zugänglich für alle, mitten im Alltag.</p>
                 <p>So entsteht ein stadtweites Netzwerk, das Ressourcen schont, Abfall reduziert und Menschen verbindet. Aus spontanen Gesten wird eine gelebte Kultur des Teilens, die Nachbarschaften stärkt und neue Begegnungen ermöglicht.</p>
                 <p>Die Vision ist ein Zürich, in dem Kreislaufdenken sichtbar und erlebbar wird – praktisch, sozial und nachhaltig.</p>
-                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2298" target="_blank" class="btn-s btn-lime" style="text-decoration: none; display: inline-block;">Projekt unterstützen</a>
+                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2298" target="_blank" class="btn-s btn-lime" style="text-decoration: none;">Projekt unterstützen</a>
             </div>
             <div class="project-sidebar-visuals">
                 <div class="carousel-container">
@@ -247,13 +262,13 @@
                 
                 <h3>Vision Playground</h3>
                 <p>Das Projekt reduziert Hitzeinseln und verbessert das Mikroklima nachhaltig. Es transformiert einen reinen Durchgangsraum in einen lebendigen, generationenübergreifenden Treffpunkt und schafft eine neue dreidimensionale Raumqualität im Quartier.</p>
-                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-s btn-lime" style="text-decoration: none; display: inline-block;">Jetzt Voten</a>
+                <a href="https://mitwirken.stadt-zuerich.ch/processes/pilotquartier/f/664/proposals/2334" target="_blank" class="btn-s btn-lime" style="text-decoration: none;">Jetzt Voten</a>
             </div>
             <div class="project-sidebar-visuals">
                 <div class="slider-wrap">
                     <img src="IMG_2031.png" class="slider-img">
                     <img src="IMG_2032.png" class="slider-img" id="slider-front">
-                    <div class="slider-bar" id="slider-line"><div class="slider-handle">↔</div></div>
+                    <div class="slider-bar" id="slider-line"><div class="slider-handle"></div></div>
                     <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this.value)">
                 </div>
             </div>
