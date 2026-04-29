@@ -38,7 +38,7 @@
         .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(3rem, 8vw, 5rem); line-height: 1; margin: 15px 0; }
         .hero p { font-size: 1.2rem; opacity: 0.7; }
 
-        /* --- VORSCHAU-GRID (DASHBOARD) --- */
+        /* --- VORSCHAU-GRID --- */
         #overview-section { transition: opacity 0.4s ease; padding-bottom: 100px; }
         .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
         
@@ -56,7 +56,7 @@
         .preview-card p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 1.1rem; }
         .btn-discover { display: inline-block; padding: 12px 30px; background: white; color: var(--text); border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; }
 
-        /* --- DETAIL-ANSICHTEN (Zuerst unsichtbar) --- */
+        /* --- DETAIL-ANSICHTEN --- */
         .detail-view { display: none; padding: 120px 5% 50px; max-width: 1200px; margin: 0 auto; animation: slideUp 0.6s ease forwards; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -79,14 +79,22 @@
         .carousel { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; margin-top: 40px; }
         .carousel img { height: 400px; min-width: 300px; border-radius: 20px; object-fit: cover; flex-shrink: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* --- VERGLEICHS-SLIDER (PLAYGROUND) --- */
-        .slider-container { position: relative; width: 100%; max-width: 1100px; aspect-ratio: 16/9; margin: 50px auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .slider-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .slider-overlay { position: absolute; top: 0; left: 0; height: 100%; width: 50%; overflow: hidden; border-right: 4px solid white; pointer-events: none; }
-        .slider-fg { width: 100vw; max-width: 1100px; height: 100%; object-fit: cover; display: block; }
+        /* --- NEUER VERGLEICHS-SLIDER (CLIP-PATH METHODE) --- */
+        .slider-container { position: relative; width: 100%; aspect-ratio: 16/9; margin: 50px auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        
+        /* Das Hintergrundbild (Nachher / Unten liegend) */
+        .slider-img-back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Das Vordergrundbild (Vorher / Oben liegend, wird abgeschnitten) */
+        .slider-img-front { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+        
+        /* Die weiße Trennlinie */
+        .slider-line { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; transform: translateX(-50%); pointer-events: none; z-index: 5; }
+        
+        /* Der unsichtbare Input-Regler */
         .slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; }
 
-        /* --- INFO SECTIONS (Unten) --- */
+        /* --- INFO SECTIONS --- */
         .info-section { padding: 100px 5%; max-width: 1400px; margin: 0 auto 40px; border-radius: 50px; }
         .bg-gray { background: var(--gray); }
         .bg-dark { background: var(--text); color: white; }
@@ -118,7 +126,7 @@
 
         <section class="preview-grid">
             <div class="preview-card" onclick="openProject('tauschpunkt')">
-                <img src="Bild.tauschpunkt1" alt="tauschpunkt.">
+                <img src="Bild.tauschpunkt1.png" alt="tauschpunkt.">
                 <h2>tauschpunkt.</h2>
                 <p>Einfache Tausch-Stationen für eine sichtbare Kreislaufwirtschaft im Quartier.</p>
                 <div><span class="btn-discover">Projekt Entdecken</span></div>
@@ -160,11 +168,11 @@
 
         <h3 style="font-family: 'Space Grotesk'; margin-top: 40px;">Projekt Galerie</h3>
         <div class="carousel">
-            <img src="Bild.tauschpunkt1" alt="Ansicht 1">
-            <img src="Bild.tauschpunkt2" alt="Ansicht 2">
-            <img src="Bild.tauschpunkt3" alt="Ansicht 3">
-            <img src="Bild.tauschpunkt4" alt="Ansicht 4">
-            <img src="Bild.tauschpunkt5" alt="Ansicht 5">
+            <img src="Bild.tauschpunkt1.png" alt="Ansicht 1">
+            <img src="Bild.tauschpunkt2.png" alt="Ansicht 2">
+            <img src="Bild.tauschpunkt3.png" alt="Ansicht 3">
+            <img src="Bild.tauschpunkt4.png" alt="Ansicht 4">
+            <img src="Bild.tauschpunkt5.png" alt="Ansicht 5">
         </div>
     </section>
 
@@ -191,14 +199,16 @@
         </div>
 
         <h3 style="font-family: 'Space Grotesk'; text-align: center;">Transformation erleben</h3>
-        <p style="text-align: center; opacity: 0.6; font-size: 0.9rem;">Bewege den Regler, um Vorher/Nachher zu vergleichen</p>
+        <p style="text-align: center; opacity: 0.6; font-size: 0.9rem;">Schiebe den Regler nach links und rechts (Nachher vs. Vorher)</p>
         
         <div class="slider-container">
-            <img src="IMG_2032.png" class="slider-bg" alt="Vorher">
-            <div class="slider-overlay" id="pl-overlay">
-                <img src="IMG_2031.png" class="slider-fg" alt="Nachher"> 
-            </div>
-            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="document.getElementById('pl-overlay').style.width = this.value + '%'">
+            <img src="IMG_2031.png" class="slider-img-back" alt="Nachher">
+            
+            <img src="IMG_2032.png" class="slider-img-front" id="slider-front" alt="Vorher">
+            
+            <div class="slider-line" id="slider-line"></div>
+            
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this.value)">
         </div>
 
         <div class="carousel" style="justify-content: center;">
@@ -225,26 +235,24 @@
     </footer>
 
     <script>
-        // Funktion zum Öffnen eines Projekts
         function openProject(projectId) {
-            // Verstecke die Übersicht
             document.getElementById('overview-section').style.display = 'none';
-            // Verstecke alle Details
             document.querySelectorAll('.detail-view').forEach(view => view.style.display = 'none');
-            // Zeige das gewählte Projekt
             const target = document.getElementById(projectId);
             target.style.display = 'block';
-            // Scrolle sanft nach oben
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Funktion zum Zurückkehren zur Übersicht
         function showOverview() {
-            // Verstecke alle Details
             document.querySelectorAll('.detail-view').forEach(view => view.style.display = 'none');
-            // Zeige die Übersicht wieder
             document.getElementById('overview-section').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Neue Logik für den Clip-Path Slider
+        function moveSlider(val) {
+            document.getElementById('slider-front').style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+            document.getElementById('slider-line').style.left = `${val}%`;
         }
     </script>
 </body>
